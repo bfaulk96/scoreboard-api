@@ -27,9 +27,11 @@ func (r *Router) CreateRoutes(collection *database.DBCollection, config *configu
 	r.HandleFunc("/games/name/{name}", handlers.GetGameByName(collection)).Methods("GET")
 	r.HandleFunc("/games/new", handlers.StartNewGame(collection)).Methods("POST")
 	r.HandleFunc("/games/delete", handlers.DeleteGame(collection)).Methods("DELETE")
-	r.HandleFunc("/increment-blue/{increment}", handlers.IncrementBlue(collection)).Methods("PUT")
+	r.HandleFunc("/increment-blue/{increment}", handlers.IncrementBlue(collection, false)).Methods("PUT")
+	r.HandleFunc("/increment-blue", handlers.IncrementBlue(collection, true)).Methods("PUT")
 	r.HandleFunc("/set-blue/{blueScore}", handlers.SetBlue(collection)).Methods("PUT")
-	r.HandleFunc("/increment-red/{increment}", handlers.IncrementRed(collection)).Methods("PUT")
+	r.HandleFunc("/increment-red/{increment}", handlers.IncrementRed(collection, false)).Methods("PUT")
+	r.HandleFunc("/increment-red", handlers.IncrementRed(collection, true)).Methods("PUT")
 	r.HandleFunc("/set-red/{redScore}", handlers.SetRed(collection)).Methods("PUT")
 
 	r.NotFoundHandler = http.HandlerFunc(handlers.NotFoundPage)

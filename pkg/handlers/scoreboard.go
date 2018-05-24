@@ -128,17 +128,23 @@ func StartNewGame(collection *database.DBCollection) (http.HandlerFunc) {
 	}
 }
 
-func IncrementBlue(collection *database.DBCollection) (http.HandlerFunc) {
+func IncrementBlue(collection *database.DBCollection, incrementOne bool) (http.HandlerFunc) {
 	return func(w http.ResponseWriter, r *http.Request) () {
 		ar, aw := models.NewAPIRequest(r), models.NewAPIResponseWriter(w)
 		if Authenticate(ar.BasicAuth()) {
-			routeVariables := ar.GetRouteVariables()
-			incrementStr := routeVariables["increment"]
-			increment, err := strconv.Atoi(incrementStr)
-			if err != nil {
-				log.Printf("Integer expected for increment value, something else was provided..")
-				aw.Respond(ar, &responses.Error{Error: "Integer expected for increment value, something else was provided."}, http.StatusBadRequest)
-				return
+			var increment int
+			var err error
+			if !incrementOne {
+				routeVariables := ar.GetRouteVariables()
+				incrementStr := routeVariables["increment"]
+				increment, err = strconv.Atoi(incrementStr)
+				if err != nil {
+					log.Printf("Integer expected for increment value, something else was provided..")
+					aw.Respond(ar, &responses.Error{Error: "Integer expected for increment value, something else was provided."}, http.StatusBadRequest)
+					return
+				}
+			} else {
+				increment = 1
 			}
 			game, responseError := FindGame(ar, aw, collection)
 			if responseError != nil {
@@ -158,17 +164,23 @@ func IncrementBlue(collection *database.DBCollection) (http.HandlerFunc) {
 	}
 }
 
-func IncrementRed(collection *database.DBCollection) (http.HandlerFunc) {
+func IncrementRed(collection *database.DBCollection, incrementOne bool) (http.HandlerFunc) {
 	return func(w http.ResponseWriter, r *http.Request) () {
 		ar, aw := models.NewAPIRequest(r), models.NewAPIResponseWriter(w)
 		if Authenticate(ar.BasicAuth()) {
-			routeVariables := ar.GetRouteVariables()
-			incrementStr := routeVariables["increment"]
-			increment, err := strconv.Atoi(incrementStr)
-			if err != nil {
-				log.Printf("Integer expected for increment value, something else was provided.")
-				aw.Respond(ar, &responses.Error{Error: "Integer expected for increment value, something else was provided."}, http.StatusBadRequest)
-				return
+			var increment int
+			var err error
+			if !incrementOne {
+				routeVariables := ar.GetRouteVariables()
+				incrementStr := routeVariables["increment"]
+				increment, err = strconv.Atoi(incrementStr)
+				if err != nil {
+					log.Printf("Integer expected for increment value, something else was provided.")
+					aw.Respond(ar, &responses.Error{Error: "Integer expected for increment value, something else was provided."}, http.StatusBadRequest)
+					return
+				}
+			} else {
+				increment = 1
 			}
 			game, responseError := FindGame(ar, aw, collection)
 			if responseError != nil {
