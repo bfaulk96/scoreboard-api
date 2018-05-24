@@ -1,3 +1,5 @@
 scoreboard-api.iml
 mongoCreateUser.js
 cmd/srv/secrets.json
+.idea/
+.DS_Store
