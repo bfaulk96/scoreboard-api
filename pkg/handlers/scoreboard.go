@@ -146,6 +146,9 @@ func IncrementBlue(collection *database.DBCollection) (http.HandlerFunc) {
 				return
 			}
 			game.BlueScore += increment
+			if game.BlueScore >= game.WinningScore {
+				game.GameFinished = true
+			}
 			err = collection.UpdateGame(game.Id.Hex(), game)
 		} else {
 			log.Printf("Invalid API Username/Password")
@@ -173,6 +176,9 @@ func IncrementRed(collection *database.DBCollection) (http.HandlerFunc) {
 				return
 			}
 			game.RedScore += increment
+			if game.RedScore >= game.WinningScore {
+				game.GameFinished = true
+			}
 			err = collection.UpdateGame(game.Id.Hex(), game)
 		} else {
 			log.Printf("Invalid API Username/Password")
@@ -200,6 +206,9 @@ func SetBlue(collection *database.DBCollection) (http.HandlerFunc) {
 				return
 			}
 			game.BlueScore = blueScore
+			if blueScore >= game.WinningScore {
+				game.GameFinished = true
+			}
 			err = collection.UpdateGame(game.Id.Hex(), game)
 			if err != nil {
 				log.Printf("Error Updating scoreboard: %v\n", err.Error())
@@ -232,6 +241,9 @@ func SetRed(collection *database.DBCollection) (http.HandlerFunc) {
 				return
 			}
 			game.RedScore = redScore
+			if redScore >= game.WinningScore {
+				game.GameFinished = true
+			}
 			err = collection.UpdateGame(game.Id.Hex(), game)
 			if err != nil {
 				log.Printf("Error Updating scoreboard: %v\n", err.Error())
