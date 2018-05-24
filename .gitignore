@@ -3,3 +3,4 @@ mongoCreateUser.js
 cmd/srv/secrets.json
 .idea/
 .DS_Store
+cmd/srv/.DS_Store
