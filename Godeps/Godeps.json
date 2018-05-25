@@ -2,11 +2,7 @@
   "ImportPath": "github.com/scoreboard-api/cmd/srv",
   "GoVersion": "go1.10.2",
   "Packages": [
-    "../../pkg/configurations",
-    "../../pkg/database",
-    "../../pkg/handlers",
-    "../../pkg/models",
-    "../../pkg/responses"
+    "../../..."
   ],
   "Deps": [
     {
