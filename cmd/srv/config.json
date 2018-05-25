@@ -1,7 +1,7 @@
 {
   "dbURL": "mongodb://user:pass@127.0.0.1:27017",
-  "dbName": "volleyballScoreboard",
-  "collectionName": "scorecard",
+  "dbName": "volleyball-scoreboard",
+  "collectionName": "scoreboard",
   "port": "8001",
   "allowedOrigins": "http://localhost:4200"
 }

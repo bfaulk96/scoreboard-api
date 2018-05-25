@@ -34,6 +34,7 @@ func InitializeMongoDatabase(config *configurations.Config) (collection *DBColle
 
 	session, err := mgo.Dial(connectionString)
 	if err != nil {
+		//println(connectionString)
 		log.Fatalf("Error connecting to database:\n%v\n", err)
 	}
 	session.SetMode(mgo.Monotonic, true)

@@ -36,7 +36,7 @@ func LoadConfig() (config *Config) {
 		log.Fatalf("Error opening config file: \n\"%v\".\n", err.Error())
 	}
 	defer confFile.Close()
-	secretsFile, err := os.Open(configPath)
+	secretsFile, err := os.Open(secretsPath)
 	if err != nil {
 		log.Fatalf("Error opening secrets file: \n\"%v\".\n", err.Error())
 	}

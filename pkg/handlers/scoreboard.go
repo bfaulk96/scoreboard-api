@@ -13,6 +13,9 @@ import (
 	"strings"
 )
 
+var seededRand *rand.Rand = rand.New(
+	rand.NewSource(time.Now().UnixNano()))
+
 func GetAllActiveGames(collection *database.DBCollection) (http.HandlerFunc) {
 	return func(w http.ResponseWriter, r *http.Request) () {
 		ar, aw := models.NewAPIRequest(r), models.NewAPIResponseWriter(w)
@@ -294,12 +297,11 @@ func DeleteGame(collection *database.DBCollection) (http.HandlerFunc) {
 	}
 }
 
-
-func RandomString(n int) string {
-	var letter = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
-	b := make([]rune, n)
+func RandomString(length int) string {
+	charset := "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+	b := make([]byte, length)
 	for i := range b {
-		b[i] = letter[rand.Intn(len(letter))]
+		b[i] = charset[seededRand.Intn(len(charset))]
 	}
 	return string(b)
 }
