@@ -1,5 +1,5 @@
 {
-  "dbURL": "mongodb://scoreboardUser:f34qnhlr3j42klhjrtkldafds3h@127.0.0.1:27017",
+  "dbURL": "mongodb://user:pass@127.0.0.1:27017",
   "dbName": "volleyballScoreboard",
   "collectionName": "scorecard",
   "port": "8001",
