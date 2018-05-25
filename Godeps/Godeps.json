@@ -1,18 +1,43 @@
 {
-  "ImportPath": "github.com/scoreboard-api/cmd/srv",
-  "GoVersion": "go1.10.2",
-  "Packages": [
-    "../../..."
-  ],
-  "Deps": [
-    {
-      "ImportPath": "github.com/rs/cors"
-    },
-    {
-      "ImportPath": "github.com/globalsign/mgo"
-    },
-    {
-      "ImportPath": "github.com/gorilla/mux"
-    }
-  ]
+	"ImportPath": "github.com/bfaulk96/scoreboard-api",
+	"GoVersion": "go1.10",
+	"GodepVersion": "v80",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/globalsign/mgo",
+			"Comment": "r2018.04.23",
+			"Rev": "efe0945164a7e582241f37ae8983c075f8f2e870"
+		},
+		{
+			"ImportPath": "github.com/globalsign/mgo/bson",
+			"Comment": "r2018.04.23",
+			"Rev": "efe0945164a7e582241f37ae8983c075f8f2e870"
+		},
+		{
+			"ImportPath": "github.com/globalsign/mgo/internal/json",
+			"Comment": "r2018.04.23",
+			"Rev": "efe0945164a7e582241f37ae8983c075f8f2e870"
+		},
+		{
+			"ImportPath": "github.com/globalsign/mgo/internal/sasl",
+			"Comment": "r2018.04.23",
+			"Rev": "efe0945164a7e582241f37ae8983c075f8f2e870"
+		},
+		{
+			"ImportPath": "github.com/globalsign/mgo/internal/scram",
+			"Comment": "r2018.04.23",
+			"Rev": "efe0945164a7e582241f37ae8983c075f8f2e870"
+		},
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Rev": ""
+		},
+		{
+			"ImportPath": "github.com/rs/cors",
+			"Rev": ""
+		}
+	]
 }
