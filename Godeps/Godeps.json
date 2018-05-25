@@ -33,11 +33,13 @@
 		},
 		{
 			"ImportPath": "github.com/gorilla/mux",
-			"Rev": ""
+			"Comment": "v1.6.2",
+			"Rev": "e3702bed27f0d39777b0b37b664b6280e8ef8fbf"
 		},
 		{
 			"ImportPath": "github.com/rs/cors",
-			"Rev": ""
+			"Comment": "v1.3.0-4-g12972ae",
+			"Rev": "12972ae4e7775151d0d53aaad277be85133ce445"
 		}
 	]
 }
